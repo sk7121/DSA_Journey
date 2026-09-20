@@ -17,11 +17,12 @@ public:
 
         leftMax[0] = height[0];
 
-        int sum = min(leftMax[0],rightMax[0])-height[0];
-        
-        for (int i = 1; i < n; i++) {
+        int sum = 0;
+
+        for (int i = 1; i < n - 1; i++) {
             leftMax[i] = max(leftMax[i - 1], height[i]);
-            sum+= min(leftMax[i], rightMax[i]) - height[i];
+
+            sum += min(leftMax[i], rightMax[i]) - height[i];
         }
 
         return sum;
